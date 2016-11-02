@@ -41,6 +41,29 @@ dependencies {
 }
 ```
 
+
+### Verifying PiQAlike Configuration
+
+Once you have finished installing PiQAlike framework, you can test your configuration by importing the dependencies and connecting a client to the PiQAlike cloud. To do so, add following code to your Application class. (note that you must substitute the client name and client token placeholder text with your actual values, in order to get these values please contact us at support@streamoid.com):
+
+```sh
+ piqALike.initialize(VENDOR, TOKEN, new com.streamoid.sdk.piqalike.Callback() {
+                @Override
+                public void onSuccess(String response) {
+                    //Connection Success
+                }
+
+                @Override
+                public void onFail(String error) {
+                    //Connection Failed
+
+                }
+            });
+```
+Launch your application and verify that the connection is successful. You are now ready to begin visual search.
+
+
+
 ### Contact
 
 You can reach the Streamoid team at any time by emailing support@streamoid.com.
