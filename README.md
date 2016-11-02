@@ -1,15 +1,15 @@
-# PiqALikeSdk Android
+# PiQAlike Android
 
 [![N|Solid](http://www.streamoid.com/images/logo-white.png)](http://www.streamoid.com/)
 
-This repository contains binary distributions of PiqALikeSdk Android framework.
+This repository contains binary distributions of PiQAlike Android framework.
 
 If you have any questions, comments, or issues related to PiQAlike, Please contact the team by emailing support@streamoid.com.
 
 
 ### PiQAlike
 
-PiQAlike is an Android SDK for visual search recommendations in fashion. PiQAlike SDK provided by Streamoid Technologies lets you seemlessly integrate visual search feature into your native iOS applications.
+PiQAlike is an Android framework for visual search recommendations in fashion. PiQAlike framework provided by Streamoid Technologies lets you seemlessly integrate visual search feature into your native android applications
 
 - what is visual search in fashion ?
 - That perfect summer dress you saw in a magazine or those shoes that the woman was wearing at the coffee shop this morning. Just take a photo and find similar products in your app using PiQAlike SDK.
@@ -44,7 +44,7 @@ dependencies {
 
 ### Verifying PiQAlike Configuration
 
-Once you have finished installing PiQAlike framework, you can test your configuration by importing the dependencies and connecting a client to the PiQAlike cloud. To do so, add following code to your Application class. (note that you must substitute the client name and client token placeholder text with your actual values, in order to get these values please contact us at support@streamoid.com):
+Once you have finished adding PiQAlike framework to your project, you can test your configuration by importing the dependencies and connecting a client to the PiQAlike cloud. To do so, add following code to your Application class. (note that you must substitute the client name and client token placeholder text with your actual values, in order to get these values please contact us at support@streamoid.com):
 
 ```sh
  piqALike.initialize(VENDOR, TOKEN, new com.streamoid.sdk.piqalike.Callback() {
@@ -62,7 +62,9 @@ Once you have finished installing PiQAlike framework, you can test your configur
 ```
 Launch your application and verify that the connection is successful. You are now ready to begin visual search.
 
+### Note
 
+Since PiQAlike uses camera for image search, the application which uses PiQAlike should request for *camera & gallery permissions*
 
 ### Contact
 
