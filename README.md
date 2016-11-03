@@ -64,8 +64,14 @@ Launch your application and verify that the connection is successful. You are no
 
 ### Note
 
-Since PiQAlike uses camera for image search, the application which uses PiQAlike should request for *camera & gallery permissions*
+Following Permissions are mandatory:
 
+```sh
+Manifest.permission.CAMERA // To use Device Camera
+Manifest.permission.INTERNET // To connect Webservice and fetch matches
+Manifest.permission.ACCESS_NETWORK_STATE // To check Network Availibility
+Manifest.permission.READ_EXTERNAL_STORAGE or Manifest.permission.WRITE_EXTERNAL_STORAGE// To access Gallery to pick image for search matches
+```
 ### Contact
 
 You can reach the Streamoid team at any time by emailing support@streamoid.com.
