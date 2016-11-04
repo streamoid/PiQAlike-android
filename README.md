@@ -77,9 +77,9 @@ Launch your application and verify that the connection is successful. You are no
 ### To Start Visual Search
 
 ```
- PiqALike.getInstance(MainActivity.this).openCamera(new CameraCallback() {
+ PiqALike.getInstance(Context).openCamera(new CameraCallback() {
                     @Override
-                    public void onSuccess(final String response, String originalBitmap, String croppedBitmap, String cropPoints) {
+                    public void onSuccess(final String response, String originalBitmap, String croppedBitmap, String cropPoints){
                         // Handle Response
 
                     }
