@@ -41,6 +41,16 @@ dependencies {
 }
 ```
 
+Add following to manifest application
+
+
+```
+ <application
+  ...
+  tools:replace="android:theme"
+  ...
+  >
+```
 
 ### Verifying PiQAlike Configuration
 
@@ -60,7 +70,29 @@ Once you have finished adding PiQAlike framework to your project, you can test y
                 }
             });
 ```
+
 Launch your application and verify that the connection is successful. You are now ready to begin visual search.
+
+
+### To Start Visual Search
+
+```
+ PiqALike.getInstance(MainActivity.this).openCamera(new CameraCallback() {
+                    @Override
+                    public void onSuccess(final String response, String originalBitmap, String croppedBitmap, String cropPoints) {
+                        // Handle Response
+
+                    }
+
+                    @Override
+                    public void onFail(String error) {
+                    // Handle Fail Case
+                    }
+                });
+
+```
+
+
 
 ### Note
 
