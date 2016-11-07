@@ -33,8 +33,8 @@ public class Home extends AppCompatActivity {
     private static int REQUESTCODE = 833;
     private OkHttpClient okHttpClient;
     private ProgressDialog progressDialog;
-    String VENDOR = "abof";
-    String TOKEN = "2a7895fb-0a90-404c-b355-e5796f5bf472";
+    String VENDOR = "piqit";//Replace with your vendor name
+    String TOKEN = "token";//Replace with your token
     private AppCompatButton openCameraButton;
     private AppCompatButton settingsButton;
     private Toolbar toolbar;
