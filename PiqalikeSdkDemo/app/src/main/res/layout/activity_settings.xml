@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_settings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="piqalike.streamoid.com.piqalikesdk.SettingsAct">
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/toolbar"
+       android:layout_alignParentTop="true"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <CheckBox
+            android:text="Colorize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/colorizetheme"
+            android:layout_below="@+id/textView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    
+        <TextView
+            android:text="Bottom Bar Color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/themepickerbar"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="19dp"
+            android:id="@+id/textView2" />
+    
+        <CheckBox
+            android:text="Colorize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/bottombarcolorize" />
+    
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginLeft="3dp"
+            android:background="#ff0000"
+            android:layout_height="10dp"
+            android:id="@+id/themepickerbar"
+            android:layout_below="@+id/themepicker"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    
+        <android.support.v7.widget.AppCompatButton
+            android:text="Pick Color"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/themepicker"
+            android:layout_below="@+id/colorizetheme"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    
+        <android.support.v7.widget.AppCompatButton
+            android:text="Pick Color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bottombarpicker"
+            android:textColor="#ffffff"
+            android:layout_below="@+id/bottombarcolorize"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    
+        <ImageView
+            android:layout_marginRight="3dp"
+            android:layout_marginLeft="3dp"
+            android:layout_width="70dp"
+            android:background="#ff0000"
+            android:layout_height="10dp"
+            android:id="@+id/bottombarpickerbar"
+            android:layout_below="@+id/bottombarpicker"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    
+        <TextView
+            android:text="Theme Color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            
+            android:layout_alignRight="@+id/colorizetheme"
+            android:layout_alignEnd="@+id/colorizetheme" />
+    </RelativeLayout>
+</RelativeLayout>
