@@ -56,9 +56,8 @@ Add following to manifest application
 
 Once you have finished adding PiQAlike framework to your project, you can test your configuration by importing the dependencies and connecting a client to the PiQAlike cloud. To do so, add following code to your Application class. (note that you must substitute the client name and client token placeholder text with your actual values, in order to get these values please contact us at support@streamoid.com):
 
+### Simple Intialization
 ```sh
-Default Intialization
-
  piqALike.initialize(VENDOR, TOKEN, new com.streamoid.sdk.piqalike.Callback() {
                 @Override
                 public void onSuccess(String response) {
@@ -71,10 +70,14 @@ Default Intialization
 
                 }
             });
-            
-Custom Intialilization
 
-               PiqALikeParams params=new PiqALikeParams();
+```
+
+### Custom Intialilization
+
+```sh
+
+                PiqALikeParams params=new PiqALikeParams();
                 params.setThemeColor(Color.MAGENTA);
                 params.setCropperType(PiqALikeParams.CROPPER.FREEMODE);
                 params.setBottomBarColor(Color.BLUE);
