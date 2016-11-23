@@ -15,6 +15,7 @@ import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.streamoid.sdk.piqalike.*;
@@ -33,12 +34,13 @@ public class Home extends AppCompatActivity {
     private static int REQUESTCODE = 833;
     private OkHttpClient okHttpClient;
     private ProgressDialog progressDialog;
-    String VENDOR = "piqit";//Replace with your vendor name
-    String TOKEN = "token";//Replace with your token
-    private AppCompatButton openCameraButton;
-    private AppCompatButton settingsButton;
+    String VENDOR = "VENDER";
+    String TOKEN = "TOKEN";
+    private AppCompatButton findbyimage;
+    private AppCompatButton findbyid;
     private Toolbar toolbar;
     private PiqALike piqALike;
+    private EditText productIDedit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,8 +71,8 @@ public class Home extends AppCompatActivity {
                 @Override
                 public void onSuccess(String response) {
                     progressDialog.dismiss();
-                    openCameraButton.setEnabled(true);
-                    settingsButton.setEnabled(true);
+                    findbyimage.setEnabled(true);
+                    findbyid.setEnabled(true);
                 }
 
                 @Override
@@ -87,8 +89,9 @@ public class Home extends AppCompatActivity {
     }
 
     private void initViews() {
-        openCameraButton = ((AppCompatButton) findViewById(R.id.opencamera));
-        settingsButton = ((AppCompatButton) findViewById(R.id.settings));
+        findbyimage = ((AppCompatButton) findViewById(R.id.opencamera));
+        productIDedit = ((EditText) findViewById(R.id.editText2));
+        findbyid = ((AppCompatButton) findViewById(R.id.settings));
         toolbar = ((Toolbar) findViewById(R.id.toolbar));
         toolbar.setTitle("PiqALike Demo");
         toolbar.setTitleTextColor(Color.WHITE);
@@ -115,7 +118,7 @@ public class Home extends AppCompatActivity {
                 alertDialog.show();
             }
         });
-        openCameraButton.setOnClickListener(new View.OnClickListener() {
+        findbyimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (initPiqALike()) {
@@ -123,11 +126,11 @@ public class Home extends AppCompatActivity {
                 }
             }
         });
-        settingsButton.setOnClickListener(new View.OnClickListener() {
+        findbyid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (initPiqALike()) {
-                    settings();
+                    findbyid();
                 }
             }
         });
@@ -155,9 +158,27 @@ public class Home extends AppCompatActivity {
 
     }
 
-    public void settings() {
-        Intent intent = new Intent(Home.this, SettingsAct.class);
-        startActivity(intent);
+    public void findbyid() {
+        progressDialog = ProgressDialog.show(Home.this, "Initializing", "Please wait...", true);
+        progressDialog.setCancelable(false);//SHRUGWB-GREY-
+        progressDialog.show();
+        piqALike.getVisuallySimilarProducts(productIDedit.getText().toString(), new SimilarSearchResultsCallback() {
+            @Override
+            public void onSuccess(String response) {
+                progressDialog.dismiss();
+                Intent intent=new Intent(Home.this,Results.class);
+                intent.putExtra("result",response);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onFail(String error) {
+                progressDialog.dismiss();
+            }
+        });
+
+//        Intent intent = new Intent(Home.this, SettingsAct.class);
+//        startActivity(intent);
     }
 
     private boolean checkPermissions(AppCompatActivity context) {

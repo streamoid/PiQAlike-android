@@ -8,7 +8,7 @@
     tools:context="piqalike.streamoid.com.piqalikesdk.Home">
 
     <android.support.v7.widget.AppCompatButton
-        android:text="@string/open_camera"
+        android:text="SEARCH BY IMAGE"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/opencamera"
@@ -39,7 +39,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.v7.widget.AppCompatButton
-        android:text="@string/settings"
+        android:text="SEARCH BY PRODUCTID"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/settings"
@@ -53,5 +53,18 @@
         android:layout_marginRight="32dp"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp" />
+
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text=""
+        android:hint="ProductID"
+        android:ems="10"
+        android:id="@+id/editText2"
+        app:layout_constraintRight_toRightOf="@+id/opencamera"
+        app:layout_constraintLeft_toLeftOf="@+id/opencamera"
+        app:layout_constraintBottom_toTopOf="@+id/opencamera"
+        android:layout_marginBottom="18dp" />
 
 </android.support.constraint.ConstraintLayout>

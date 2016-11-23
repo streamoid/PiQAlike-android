@@ -76,9 +76,15 @@ public class Results extends AppCompatActivity {
                 getResources().getDimensionPixelSize(R.dimen.list_spacing),
               2));
         recyclerView.setLayoutManager(new GridLayoutManager(Results.this,2));
-        ResultPojo resultPojo=new Gson().fromJson(result,ResultPojo.class);
-        ResultsAdapter resultsAdapter=new ResultsAdapter(Results.this,resultPojo.getData());
-        recyclerView.setAdapter(resultsAdapter);
+        try {
+            ResultPojo resultPojo = new Gson().fromJson(result, ResultPojo.class);
+            if(resultPojo.getData()!=null&&resultPojo.getData().length>0) {
+                ResultsAdapter resultsAdapter = new ResultsAdapter(Results.this, resultPojo.getData());
+                recyclerView.setAdapter(resultsAdapter);
+            }
+        }catch (Exception e){
+
+        }
       //  if(!isFilter){
 //        if(resultPojo.getData().length<1){
 //            Intent intent=new Intent(Results.this,Filters.class);
