@@ -137,7 +137,21 @@ Launch your application and verify that the connection is successful. You are no
 ```
 
 
+### To find Visually similar products by productId
 
+```
+PiqALike.getInstance(Context).getVisuallySimilarProducts(PRODUCTID, new SimilarSearchResultsCallback() {
+            @Override
+            public void onSuccess(String response) {
+                // Handle Response
+            }
+
+            @Override
+            public void onFail(String error) {
+              // Handle Fail Case
+            }
+        });
+```
 ### Note
 
 Following Permissions are mandatory:
