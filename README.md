@@ -73,7 +73,7 @@ Once you have finished adding PiQAlike framework to your project, you can test y
 
 ```
 
-### Custom Intialilization
+### Custom Intialization
 
 ```sh
 
