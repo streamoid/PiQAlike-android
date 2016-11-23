@@ -36,7 +36,7 @@ to use the JCenter Repository
 ```groovy
 dependencies {
     ...
-    compile 'com.streamoid.sdk.piqalike:piqalikesdk:1.0.6'
+    compile 'com.streamoid.sdk.piqalike:piqalikesdk:1.0.9'
     ...
 }
 ```
@@ -56,6 +56,7 @@ Add following to manifest application
 
 Once you have finished adding PiQAlike framework to your project, you can test your configuration by importing the dependencies and connecting a client to the PiQAlike cloud. To do so, add following code to your Application class. (note that you must substitute the client name and client token placeholder text with your actual values, in order to get these values please contact us at support@streamoid.com):
 
+### Simple Intialization
 ```sh
  piqALike.initialize(VENDOR, TOKEN, new com.streamoid.sdk.piqalike.Callback() {
                 @Override
@@ -69,6 +70,49 @@ Once you have finished adding PiQAlike framework to your project, you can test y
 
                 }
             });
+
+```
+
+### Custom Intialization
+
+```sh
+
+                PiqALikeParams params=new PiqALikeParams();
+                params.setThemeColor(Color.MAGENTA);
+                params.setCropperType(PiqALikeParams.CROPPER.FREEMODE);
+                params.setBottomBarColor(Color.BLUE);
+                params.setDrawableCameraRotate(R.mipmap.ic_camera_rotate);
+                params.setDrawableBackButton(R.mipmap.demo_ic_back);
+                params.setDrawableFlashAuto(R.mipmap.ic_flash_auto);
+                params.setDrawableFlashOff(R.mipmap.ic_flashoff);
+                params.setDrawableFlashOn(R.mipmap.ic_flash_on);
+                params.setTextColor(Color.WHITE);
+                params.setDrawableCameraSnapButton(R.drawable.demo_camera_button);
+                PiqALike.getInstance(Demo.this).initialize(VENDOR, TOKEN,params, new Callback() {
+                    @Override
+                    public void onSuccess(String response) {
+                        PiqALike.getInstance(Demo.this).openCamera(new CameraCallback() {
+                            @Override
+                            public void onSuccess(String response, String originalBitmap, String croppedBitmap, String cropPoints) {
+                                Log.v("callback","success");
+                            }
+
+                            @Override
+                            public void onFail(String error) {
+                                Log.v("callback","fail");
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onFail(String error) {
+
+                    }
+                });
+
+
+            
+            
 ```
 
 Launch your application and verify that the connection is successful. You are now ready to begin visual search.
