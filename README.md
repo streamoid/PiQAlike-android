@@ -111,8 +111,8 @@ Once you have finished adding PiQAlike framework to your project, you can test y
                 });
 
 
-            
-            
+
+
 ```
 
 Launch your application and verify that the connection is successful. You are now ready to begin visual search.
@@ -151,3 +151,4 @@ Manifest.permission.READ_EXTERNAL_STORAGE or Manifest.permission.WRITE_EXTERNAL_
 ### Contact
 
 You can reach the Streamoid team at any time by emailing support@streamoid.com.
+
