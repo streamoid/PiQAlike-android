@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.streamoid.sdk.piqalike.*;
 import com.streamoid.sdk.piqalike.Util;
+import com.streamoid.sdk.piqalike.models.FilterApplied;
 
 import java.io.IOException;
 
@@ -67,7 +68,11 @@ public class Home extends AppCompatActivity {
             progressDialog = ProgressDialog.show(Home.this, "Initializing", "Please wait...", true);
             progressDialog.setCancelable(false);
             progressDialog.show();
-            piqALike.initialize(VENDOR, TOKEN, new com.streamoid.sdk.piqalike.Callback() {
+            PiqALikeParams params=new PiqALikeParams();
+            params.setThemeColor(Color.MAGENTA);
+            params.setCropperType(PiqALikeParams.CROPPER.FREEMODE);
+            params.setTextColor(Color.WHITE);
+            piqALike.initialize(VENDOR, TOKEN,params, new com.streamoid.sdk.piqalike.Callback() {
                 @Override
                 public void onSuccess(String response) {
                     progressDialog.dismiss();
@@ -137,14 +142,13 @@ public class Home extends AppCompatActivity {
     }
 
     public void opencamera() {
-        piqALike.openCamera(new com.streamoid.sdk.piqalike.CameraCallback() {
+        piqALike.openCamera(new CameraCallback() {
             @Override
-            public void onSuccess(String response, String orginalBitmap,String croppedBitmap,String cropPoints) {
+            public void onSuccess(String response, String originalBitmap, String croppedBitmap, String cropPoints, FilterApplied filterApplied) {
                 Log.v("response",response);
-
                 Intent intent=new Intent(Home.this,Results.class);
                 intent.putExtra("result",response);
-                intent.putExtra("orginalBitmap",orginalBitmap);
+                intent.putExtra("orginalBitmap",originalBitmap);
                 intent.putExtra("croppedBitmap",croppedBitmap);
                 intent.putExtra("cropPoints",cropPoints);
                 startActivity(intent);
@@ -152,10 +156,9 @@ public class Home extends AppCompatActivity {
 
             @Override
             public void onFail(String error) {
-                Log.v("response",error);
+                Log.v("Error",error);
             }
         });
-
     }
 
     public void findbyid() {
