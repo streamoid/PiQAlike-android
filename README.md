@@ -78,22 +78,37 @@ Once you have finished adding PiQAlike framework to your project, you can test y
 ```sh
 
                 PiqALikeParams params=new PiqALikeParams();
+                //Customize themeColor,etc..
                 params.setThemeColor(Color.MAGENTA);
-                params.setCropperType(PiqALikeParams.CROPPER.FREEMODE);
-                params.setBottomBarColor(Color.BLUE);
+                params.setTextColor(Color.WHITE);
+                
+                //Customize UI elements in Camera screen
                 params.setDrawableCameraRotate(R.mipmap.ic_camera_rotate);
                 params.setDrawableBackButton(R.mipmap.demo_ic_back);
                 params.setDrawableFlashAuto(R.mipmap.ic_flash_auto);
                 params.setDrawableFlashOff(R.mipmap.ic_flashoff);
                 params.setDrawableFlashOn(R.mipmap.ic_flash_on);
-                params.setTextColor(Color.WHITE);
                 params.setDrawableCameraSnapButton(R.drawable.demo_camera_button);
+
+                //Customize UI elements in Crop/Preview screen            
+                params.setCropperType(PiqALikeParams.CROPPER.FREEMODE);
+                params.setRetakeBtnBGColor(Color.MAGENTA);
+                params.setSearchBtnBGColor(Color.WHITE);
+                
+                //Customize UI elements in Filter screen
+                params.setMainCategoryTextColor(Color.MAGENTA);
+                params.setSubCategoryTextColor(Color.WHITE);
+                
+                //Cusotmize UI elements in Fetching dialog
+                params.setFetchingDialogTitle("Searching...");
+                params.setFetchingDialogTextColor(Color.MAGENTA);
+
                 PiqALike.getInstance(Demo.this).initialize(VENDOR, TOKEN,params, new Callback() {
                     @Override
                     public void onSuccess(String response) {
                         PiqALike.getInstance(Demo.this).openCamera(new CameraCallback() {
                             @Override
-                            public void onSuccess(String response, String originalBitmap, String croppedBitmap, String cropPoints) {
+                            public void onSuccess(String response, String originalBitmap, String croppedBitmap, String cropPoints,FilterApplied filterApplied) {
                                 Log.v("callback","success");
                             }
 
