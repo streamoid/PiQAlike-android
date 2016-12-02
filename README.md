@@ -36,7 +36,7 @@ to use the JCenter Repository
 ```groovy
 dependencies {
     ...
-    compile 'com.streamoid.sdk.piqalike:piqalikesdk:1.0.16'
+    compile 'com.streamoid.sdk.piqalike:piqalikesdk:1.0.17'
     ...
 }
 ```
@@ -110,7 +110,8 @@ Once you have finished adding PiQAlike framework to your project, you can test y
                             @Override
                             public void onSuccess(String response, String originalBitmap, String croppedBitmap, String cropPoints,FilterApplied filterApplied) {
                                 Log.v("callback","success");
-                            }
+
+}
 
                             @Override
                             public void onFail(String error) {
