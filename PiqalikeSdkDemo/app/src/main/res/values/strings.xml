@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PiqalikeSdk</string>
+    <string name="app_name">PiqalikeSdk-Demo</string>
     <string name="open_camera">Open Camera</string>
     <string name="settings">Settings</string>
 
