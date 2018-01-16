@@ -36,7 +36,7 @@ to use the JCenter Repository
 ```groovy
 dependencies {
     ...
-    compile 'com.streamoid.sdk.piqalike:piqalikesdk:1.0.18'
+    compile 'com.streamoid.sdk.piqalike:piqalikesdk:1.1.0'
     ...
 }
 ```
