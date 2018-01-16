@@ -1,6 +1,6 @@
 # PiQAlike Android
 
-[![N|Solid](http://www.streamoid.com/images/logo-white.png)](http://www.streamoid.com/)
+[![N|Solid](http://www.streamoid.com/images/logo.png)](http://www.streamoid.com/)
 
 This repository contains binary distributions of PiQAlike Android framework.
 
